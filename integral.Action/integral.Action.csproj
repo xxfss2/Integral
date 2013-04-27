@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{91C0780C-E46F-4CAA-B4D0-FC93A43F404F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>integral.Action</RootNamespace>
+    <AssemblyName>integral.Action</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accessbase.cs" />
+    <Compile Include="Action\LoginAction.cs" />
+    <Compile Include="Action\UserAct.cs" />
+    <Compile Include="Action\ManagerUserAct.cs" />
+    <Compile Include="Action\JifenChangeAct.cs" />
+    <Compile Include="Action\ChongzhiKaAct.cs" />
+    <Compile Include="Action\ChongzhiRecardAct.cs" />
+    <Compile Include="Action\LimitAct.cs" />
+    <Compile Include="Action\CommonAct.cs" />
+    <Compile Include="Action\TuiguangQQAct.cs" />
+    <Compile Include="Action\MovieAct.cs" />
+    <Compile Include="Action\CashKaAct.cs" />
+    <Compile Include="Entity\JifenChange.cs" />
+    <Compile Include="Entity\Limit.cs" />
+    <Compile Include="Entity\User.cs" />
+    <Compile Include="Entity\ManagerUser.cs" />
+    <Compile Include="Entity\ChongzhiKa.cs" />
+    <Compile Include="Entity\ChongzhiRecard.cs" />
+    <Compile Include="Entity\Common.cs" />
+    <Compile Include="Entity\TuiguangQQ.cs" />
+    <Compile Include="Entity\Movie.cs" />
+    <Compile Include="Entity\CashKa.cs" />
+    <Compile Include="MyCache.cs" />
+    <Compile Include="MyEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

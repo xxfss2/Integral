@@ -1,0 +1,32 @@
+﻿body {
+}
+.UserList 
+{
+	border-collapse: collapse;
+	  clear: both;
+    margin-top: 0;
+	 FONT-WEIGHT: normal; FONT-SIZE: 12px;  WIDTH: 96%; LINE-HEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: #ffffff; FONT-VARIANT: normal;text-align :center
+}
+.UserList th {
+    background: none repeat scroll 0 0 #E0E0E0;
+    border-color: -moz-use-text-color #CCCCCC #CCCCCC -moz-use-text-color;
+    border-right: 1px solid #CCCCCC;
+    border-style: none solid solid none;
+    border-width: medium 1px 1px medium;
+    color: #000000;
+    font-weight: bold;
+    height :20px;
+}
+.UserList td {
+    border-color: -moz-use-text-color #CCCCCC #CCCCCC -moz-use-text-color;
+    border-right: 1px solid #CCCCCC;
+    border-style: none solid solid none;
+    border-width: medium 1px 1px medium;
+    color: #333333;
+    font-family: "Times New Roman",Times,serif;
+    padding-left: 5px;
+}
+.table
+{
+	text-align :center;
+}

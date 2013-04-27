@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//Dtd HTML 4.0 transitional//EN">
+<html><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<LINK href="images/admin.css" type="text/css" rel="stylesheet">
+<SCRIPT language=javascript>
+	function expand(el)
+	{
+		childObj = document.getElementById("child" + el);
+
+		if (childObj.style.display == 'none')
+		{
+			childObj.style.display = 'block';
+		}
+		else
+		{
+			childObj.style.display = 'none';
+		}
+		return;
+	}
+	function jumpto(src)
+	{
+	    this.parent.parent.frames['main'].location.href=src;
+	}
+</SCRIPT>
+    <style type="text/css">
+        .style1
+        {
+            height: 22px;
+        }
+    </style>
+</HEAD>
+<body>
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width=170 
+background=images/menu_bg.jpg border=0>
+  <tr>
+    <td vAlign=top align=middle>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        
+        <tr>
+          <td height=10></td></tr></TABLE>
+          <TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+        
+        <tr height=22>
+          <td style="PADDING-LEFT: 30px" background=images/menu_bt.jpg><A 
+            class=menuParent onclick=expand(11) 
+            href="javascript:void(0);">网站管理</A></td></tr>
+        <tr height=4>
+          <td></td></tr></TABLE>
+      <TABLE id="child11" style="display:none" cellSpacing=0 cellPadding=0 
+      width=150 border=0>
+        <tr height=20>
+          <td align="middle" width="30"><IMG height="9"  src="images/menu_icon.gif" width="9"></td>
+          <td><a class="menuChild"   href="../Backend/BaseSet.aspx"  target="main">基本设置</a></td></tr>
+        <tr height=20>
+          <td align=middle width="30"><IMG height=9  src="images/menu_icon.gif" width=9></td>
+          <td><a class=menuChild   href="../Backend/Limit.aspx" target=main>会员等级设置</a></td></tr>
+                  <tr height=20>
+          <td align=middle width="30"><IMG height=9  src="images/menu_icon.gif" width=9></td>
+          <td><a class=menuChild   href="../Backend/Manager.aspx" target=main>管理员账户设置</a></td></tr>
+                            <tr height=20>
+          <td align=middle width="30"><IMG height=9  src="images/menu_icon.gif" width=9></td>
+          <td><a class=menuChild   href="../Backend/Movie.aspx" target=main>视频设置</a></td></tr>
+        <tr height=4>
+          <td colSpan=2></td></tr></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+        <tr>
+          <td style="PADDING-LEFT: 30px" background=images/menu_bt.jpg class="style1"><A 
+            class=menuParent onclick=expand(3) 
+            href="javascript:void(0);">注册用户中心</A></td></tr>
+        <tr height=4>
+          <td></td></tr></TABLE>
+      <TABLE id=child3 style="DISPLAY: none" cellSpacing=0 cellPadding=0 
+      width=150 border=0>
+           <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="../Backend/User.aspx" 
+            target=main>用户信息</A></td></tr>
+              <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="../Backend/JifenList.aspx" 
+            target=main>积分变动表</A></td></tr>
+                          <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="../Backend/TuiguangQQ.aspx" 
+            target=main>推广QQ账号</A></td></tr>
+   <!--   
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="../Backend/ProManage/InfoDisplay.aspx" 
+            target=main>产品列表</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="../Backend/ProManage/InfoDisplay.aspx" 
+            target=main>子类管理</A></td></tr>-->
+        <tr height=4>
+          <td colSpan=2></td></tr></TABLE>
+                <TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+        <tr height=22>
+          <td style="PADDING-LEFT: 30px" background=images/menu_bt.jpg><A 
+            class=menuParent onclick=expand(5) 
+            href="javascript:void(0);">充值卡管理</A></td></tr>
+        <tr height=4>
+          <td></td></tr></TABLE>
+      <TABLE id=child5 style="DISPLAY: none" cellSpacing=0 cellPadding=0 
+      width=150 border=0>
+        
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild  href="../Backend/ChongzhiKa.aspx" target=main>优惠卡设置</A></td></tr>
+                  <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild  href="../Backend/ChongzhiRecard.aspx" target=main>优惠卡使用记录</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild  href="../Backend/CashKa.aspx" target=main>充值卡管理</A></td></tr>
+        <tr height=4>
+          <td colSpan=2></td></tr></TABLE>
+      <!--<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+        <tr height=22>
+          <td style="PADDING-LEFT: 30px" background=images/menu_bt.jpg><A 
+            class=menuParent onclick=expand(2) 
+            href="javascript:void(0);">新闻中心</A></td></tr>
+        <tr height=4>
+          <td></td></tr></TABLE>-->
+      <!--<TABLE id=child2 style="DISPLAY: none" cellSpacing=0 cellPadding=0 
+      width=150 border=0>
+         <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild href="../Backend/News/NewAdd.aspx" target=main>新闻添加</A></td></tr>
+        <tr height=20>
+          <td align=middle width="30" ><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild  href="../Backend/News/NewDisplay.aspx"  target=main>新闻列表</A></td></tr>
+        <tr height=4>
+          <td colSpan=2></td></tr></TABLE>-->
+      <!--<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+        <tr height=22>
+          <td style="PADDING-LEFT: 30px" background=images/menu_bt.jpg><A 
+            class=menuParent onclick=expand(4) 
+            href="javascript:void(0);">客户服务</A></td></tr>
+        <tr height=4>
+          <td></td></tr></TABLE>-->
+      <!--<TABLE id=child4 style="DISPLAY: none" cellSpacing=0 cellPadding=0 
+      width=150 border=0>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class="menuChild" href="../Backend/Message/Display.aspx" target=main>留言管理</A></td></tr>
+        <tr height=20>
+          <td align=middle width="30"><IMG height="9" src="images/menu_icon.gif" width="9"></td>
+          <td><a class="menuChild" href="../Backend/Message/Help.aspx" target=main>技术支持</a></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>子类管理</A></td></tr>
+        <tr height=4>
+          <td colSpan=2></td></tr></TABLE>-->
+<!--      <TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+        
+        <tr height=22>
+          <td style="PADDING-LEFT: 30px" background=images/menu_bt.jpg><A 
+            class=menuParent onclick=expand(6) 
+            href="javascript:void(0);">高级管理</A></td></tr>
+        <tr height=4>
+          <td></td></tr></TABLE>
+      <TABLE id=child6 style="DISPLAY: none" cellSpacing=0 cellPadding=0 
+      width=150 border=0>
+        
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>广告管理</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>访问统计</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>邮件发送设置</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>联系部门</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>用户留言</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>招聘职位</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>应聘人员</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>留言簿</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>产品订购</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>链接管理</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>文件管理</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>信息转移</A></td></tr>
+        <tr height=4>
+          <td colSpan=2></td></tr></TABLE>-->
+      <!--<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+        
+        <tr height=22>
+          <td style="PADDING-LEFT: 30px" background=images/menu_bt.jpg><A 
+            class=menuParent onclick=expand(0) 
+            href="javascript:void(0);">个人管理</A></td></tr>
+        <tr height=4>
+          <td></td></tr></TABLE>-->
+      <!--<TABLE id=child0 style="DISPLAY: none" cellSpacing=0 cellPadding=0 
+      width=150 border=0>
+        
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            href="#" 
+            target=main>修改口令</A></td></tr>
+        <tr height=20>
+          <td align=middle width=30><IMG height=9 
+            src="images/menu_icon.gif" width=9></td>
+          <td><A class=menuChild 
+            onclick="if (confirm('确定要退出吗？')) return true; else return false;" 
+            href="../../Default.aspx" 
+            target=_top>退出系统</A></td></tr></TABLE>--></td>
+    <td width=1 bgColor=#d1e6f7></td></tr></TABLE></body></html>
