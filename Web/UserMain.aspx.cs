@@ -21,7 +21,7 @@ public partial class UserMain : UserBasePage
             lLevel.Text = limits.Where(s => s.Id == user.Limit).First().Name;
 
             Limit next = limits.Where(s => s.Integral > user.Jifen).OrderBy(s => s.Integral).FirstOrDefault();
-            Literal4.Text = next == null ? "0" : (next.Integral - user.Jifen).ToString();
+     
 
             lJifen.Text = user.Jifen.ToString ();
 
@@ -29,7 +29,7 @@ public partial class UserMain : UserBasePage
 
             int xiaofei = changeAct.Select(user.QQ).Where(s => s.Type == JifenChangeType.消费).Sum(s => s.Amount);
             Literal5.Text = xiaofei.ToString ();
-
+            Literal4.Text = next == null ? "0" : (next.Integral - (user.Jifen+xiaofei)).ToString();
             lJifenTotal.Text = (user.Jifen + xiaofei).ToString();
         }
     }

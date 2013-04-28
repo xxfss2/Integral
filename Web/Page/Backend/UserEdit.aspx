@@ -75,8 +75,8 @@
                     是否禁用：</td>
                 <td class="style1">
                     <asp:DropDownList ID="dropCanuse" runat="server">
+                    <asp:ListItem Value="true">否</asp:ListItem>
                         <asp:ListItem Value="false">是</asp:ListItem>
-                        <asp:ListItem Value="true">否</asp:ListItem>
                     </asp:DropDownList>
                     </td>
                 <td class="style1">

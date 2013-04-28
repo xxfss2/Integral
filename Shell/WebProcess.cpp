@@ -18,7 +18,7 @@ bool CWebProcess::Login(CString userName,CString password,CString& responseInfo)
 	try  
 	{  
 		CInternetSession Session ;   
-		CHttpConnection *pHttpConnect = Session.GetHttpConnection(_T("haishengtang.52.xindns4.info")) ;  
+		CHttpConnection *pHttpConnect = Session.GetHttpConnection(_T("pc.11343777.com")) ;  
 		if( pHttpConnect )  
 		{  
 			CHttpFile* pFile = pHttpConnect->OpenRequest( CHttpConnection::HTTP_VERB_POST ,   
@@ -40,9 +40,9 @@ bool CWebProcess::Login(CString userName,CString password,CString& responseInfo)
 				pFile->AddRequestHeaders(_T("User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)"));  
 				pFile->AddRequestHeaders(_T("Cookie: jifenqq=164981897; ASP.NET_SessionId=obf55l55ejlsr245ct4h0d45"));   
 				pFile->AddRequestHeaders(_T("Content-Type: application/x-www-form-urlencoded"));  
-				pFile->AddRequestHeaders(_T("Referer: http://haishengtang.52.xindns4.info/Default.aspx"));  
+				pFile->AddRequestHeaders(_T("Referer: http://pc.11343777.com/Default.aspx"));  
 				pFile->AddRequestHeaders(_T("Connection:   Keep-Alive"));  
-				pFile->AddRequestHeaders(_T("Host: haishengtang.52.xindns4.info"));  		
+				pFile->AddRequestHeaders(_T("Host: pc.11343777.com"));  		
 				//   pFile->AddRequestHeaders(szFormData);  
 
 				pFile->SendRequestEx (szFormData.GetLength ());

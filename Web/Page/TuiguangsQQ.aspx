@@ -8,6 +8,7 @@
     <style type="text/css">
           html,body
         {
+            background-color :#ECE9D8;
             font-size :14px;overflow:hidden;
         }
         .style1
@@ -26,6 +27,10 @@
         {
             float :left; border :1px solid #000000 ; width :280px;list-style-type:none; margin-left :5px;
         }
+          .style1 td
+        {
+            border :1px solid #000000;
+        }
     </style>
 </head>
 <body>
@@ -33,7 +38,7 @@
     <form id="form1" runat="server">
     <div>
     <div style="margin :0 auto; width :600px; ">
-       <table class="style1" border ="1" >
+       <table class="style1"  cellpadding ="0" cellspacing ="0" >
             <tr>
                 <td>
                     添加新推广QQ：</td>

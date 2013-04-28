@@ -49,9 +49,12 @@ public partial class Login :UserBasePage
                 Limit userLimit = limits.Where(s => s.Id == user.Limit).FirstOrDefault();
                 int oldLimit = user.Limit;
                 int jiangli=0;
+                JifenChangeAct changeAct = new JifenChangeAct();
+                int xiaofei = changeAct.Select(user.QQ).Where(s => s.Type == JifenChangeType.消费).Sum(s => s.Amount);
+                int total = xiaofei + user.Jifen;
                 foreach (var item in limits)
                 {
-                    if (user.Jifen > item.Integral && item .Integral >userLimit .Integral )
+                    if (total > item.Integral && item.Integral > userLimit.Integral)
                     {
                         user.Limit = item.Id;
                         jiangli =item .ShengjiJiangli ;
@@ -59,7 +62,6 @@ public partial class Login :UserBasePage
                 }
                 if (oldLimit != user.Limit)
                 {
-                    JifenChangeAct changeAct = new JifenChangeAct();
                     User tuijianren=userAct.GetByid(user.TuijianrenQQ);
                     int hasJiangli = changeAct.Select(tuijianren.QQ).Where (s=>s.Type ==JifenChangeType .被推荐人升级奖励 && s.FromQQ ==user.QQ ).Sum (s=>s.Amount ) ;
                     tuijianren.Jifen += (jiangli-hasJiangli );

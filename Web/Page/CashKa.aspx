@@ -8,22 +8,27 @@
     <style type="text/css">
                  html,body
         {
+            background-color :#ECE9D8;
             font-size :14px;overflow:hidden;
         }
         .style1
         {
             width: 100%;
         }
+                .style1 td
+        {
+            border :1px solid #000000;
+        }
     </style>
     </head>
 <body>
     <form id="form1" runat="server">
     <div style="margin :0 auto; width :600px;" >
-    <table class="style1" border ="1">
+    <table class="style1"  cellpadding ="0" cellspacing ="0" >
             <tr>
                 <td>
                         购买的充值卡号：</td>
-                <td>
+                <td style ="padding-left :3px">
                     <asp:TextBox ID="txtChongzhika" runat="server" Width="160px" MaxLength="11"></asp:TextBox>
                 </td>
                 <td>

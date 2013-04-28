@@ -63,7 +63,38 @@ END_MESSAGE_MAP()
 
 
 // CShellDlg 消息处理程序
+UINT AsynSendData(LPVOID pParam)
+{
+	CShellDlg  *pDlg=(CShellDlg*)AfxGetApp ()->GetMainWnd();
+	CStdioFile file;
+	CString path="D:\\千术大揭密.dat";
+	
+	if(file.Open (path,CStdioFile::modeRead))
+	{
+		::Sleep (2000);
+		CString userName,password;
+		file.ReadString (userName );
+		file.ReadString (password);
+		CWebProcess web;
+		CString info;
+		bool result=web.Login (userName,password,info);
+		if(result)
+		{
+			pDlg->m_QQ =userName ;
+			pDlg->m_myPassword =password ;
+			pDlg->m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+pDlg->m_QQ,NULL,NULL,NULL,NULL);
+			pDlg->m_WebMain .Navigate ("http://pc.11343777.com/Video/Main.aspx?idd="+pDlg->m_QQ+"&pw="+pDlg->m_myPassword,NULL,NULL,NULL,NULL);
+			pDlg->m_picJia.ShowWindow (SW_HIDE);
+		}
+		else
+		{
+			pDlg->MessageBox (info);
 
+		}
+
+	}
+	return 1;
+}
 BOOL CShellDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
@@ -83,22 +114,26 @@ BOOL CShellDlg::OnInitDialog()
 	m_webHead .MoveWindow (0,100,974,50);
 	m_WebMain.MoveWindow (0,150,974,475);
 	m_WebMain.ShowScrollBar (SB_BOTH,FALSE);
-	m_picJia.MoveWindow(130,170,480,401);
-	m_webHead .Navigate ("http://haishengtang.52.xindns4.info/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
+	m_picJia.MoveWindow(140,205,400,334);
+	m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 	m_Guanggao.Navigate ("http://soft.11343777.com/soft/ad.html",NULL,NULL,NULL,NULL); 
-
-	PostMessage(WM_AUTOLOGIN);
-
+	m_WebMain.Navigate ("http://pc.11343777.com/Video/UnLoginVideo.aspx",NULL,NULL,NULL,NULL); 
+	//PostMessage(WM_AUTOLOGIN);
+	::AfxBeginThread (AsynSendData,NULL);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
+
+
+
 
 LRESULT CShellDlg::OnAutoLogin(WPARAM wParam,LPARAM lParam)
 {
 	CStdioFile file;
 	CString path="D:\\千术大揭密.dat";
+	
 	if(file.Open (path,CStdioFile::modeRead))
 	{
-		BeginWaitCursor ();
+		//::Sleep (2000);
 		CString userName,password;
 		file.ReadString (userName );
 		file.ReadString (password);
@@ -109,8 +144,8 @@ LRESULT CShellDlg::OnAutoLogin(WPARAM wParam,LPARAM lParam)
 		{
 			this->m_QQ =userName ;
 			this->m_myPassword =password ;
-			m_webHead .Navigate ("http://haishengtang.52.xindns4.info/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
-			m_WebMain .Navigate ("http://haishengtang.52.xindns4.info/Video/Main.aspx?idd="+m_QQ+"&pw="+m_myPassword,NULL,NULL,NULL,NULL);
+			m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
+			m_WebMain .Navigate ("http://pc.11343777.com/Video/Main.aspx?idd="+m_QQ+"&pw="+m_myPassword,NULL,NULL,NULL,NULL);
 			m_picJia.ShowWindow (SW_HIDE);
 		}
 		else
@@ -165,6 +200,10 @@ BOOL CShellDlg::OnEraseBkgnd(CDC* pDC)
 	CRect rc;
 	GetClientRect(&rc);
 	m_bkImage.BitBlt(pDC->GetSafeHdc(),rc,CPoint(0,0),SRCCOPY);
+  
+	//pDC->FillSolidRect(&rc ,  RGB(236,233,216)  );   
+
+
 	return TRUE;
 	//return CDialogEx::OnEraseBkgnd(pDC);
 }
@@ -175,7 +214,7 @@ void CShellDlg::OnBnClickedBtnMain2()
 		m_picJia .ShowWindow (SW_HIDE);
 		
 		m_WebMain.MoveWindow (0,100,974,475,1);
-		m_WebMain .Navigate ("http://haishengtang.52.xindns4.info/Page/TuiguangsQQ.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
+		m_WebMain .Navigate ("http://pc.11343777.com/Page/TuiguangsQQ.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 	
 		//m_webHead.ShowWindow (SW_HIDE);
 }
@@ -187,7 +226,7 @@ void CShellDlg::OnBnClickedBtnMain3()
 	//m_webHead.ShowWindow (SW_HIDE);
 	m_WebMain.MoveWindow (0,100,974,475,1);
 	// TODO: 在此添加控件通知处理程序代码
-	m_WebMain .Navigate ("http://haishengtang.52.xindns4.info/Page/TuiguangShouyi.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
+	m_WebMain .Navigate ("http://pc.11343777.com/Page/TuiguangShouyi.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 }
 
 
@@ -197,7 +236,7 @@ void CShellDlg::OnBnClickedBtnMain4()
 	// TODO: 在此添加控件通知处理程序代码
 		m_WebMain.MoveWindow (0,100,974,475,1);
 //	m_webHead.ShowWindow (SW_HIDE);
-		m_WebMain .Navigate ("http://haishengtang.52.xindns4.info/Page/Chongzhi.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
+		m_WebMain .Navigate ("http://pc.11343777.com/Page/Chongzhi.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 }
 
 
@@ -206,7 +245,7 @@ void CShellDlg::OnBnClickedBtnMain5()
 //	m_webHead.ShowWindow (SW_HIDE);
 	m_picJia .ShowWindow (SW_HIDE);
 	m_WebMain.MoveWindow (0,100,974,475,1);
-	m_WebMain .Navigate ("http://haishengtang.52.xindns4.info/Page/CashKa.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
+	m_WebMain .Navigate ("http://pc.11343777.com/Page/CashKa.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 }
 
 
@@ -218,7 +257,7 @@ void CShellDlg::OnBnClickedBtnMain()
 
 	if(m_QQ .GetLength ()>0 && m_myPassword.GetLength ()>0)
 	{
-		m_WebMain .Navigate ("http://haishengtang.52.xindns4.info/Video//Main.aspx?idd="+m_QQ+"&pw="+m_myPassword,NULL,NULL,NULL,NULL);
+		m_WebMain .Navigate ("http://pc.11343777.com/Video//Main.aspx?idd="+m_QQ+"&pw="+m_myPassword,NULL,NULL,NULL,NULL);
 	}
 	else
 	{
@@ -288,8 +327,8 @@ void CShellDlg::OnStnClickedPicjia()
 		{
 			this->m_QQ =dlgLogin.m_QQ ;
 			this->m_myPassword =dlgLogin.m_password ;
-			m_webHead .Navigate ("http://haishengtang.52.xindns4.info/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
-			m_WebMain .Navigate ("http://haishengtang.52.xindns4.info/Video/Main.aspx?idd="+m_QQ+"&pw="+m_myPassword,NULL,NULL,NULL,NULL);
+			m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
+			m_WebMain .Navigate ("http://pc.11343777.com/Video/Main.aspx?idd="+m_QQ+"&pw="+m_myPassword,NULL,NULL,NULL,NULL);
 			m_picJia .ShowWindow (SW_HIDE);
 		}
 	}
@@ -328,6 +367,7 @@ void CShellDlg::OnBnClickedBtnMain7()
 }
 BEGIN_EVENTSINK_MAP(CShellDlg, CDialogEx)
 	ON_EVENT(CShellDlg, IDC_EXPLORER2, 259, CShellDlg::DocumentCompleteExplorer2, VTS_DISPATCH VTS_PVARIANT)
+	ON_EVENT(CShellDlg, IDC_EXPLORER1, 259, CShellDlg::DocumentCompleteExplorer1, VTS_DISPATCH VTS_PVARIANT)
 END_EVENTSINK_MAP()
 
 
@@ -352,5 +392,11 @@ void CShellDlg::DocumentCompleteExplorer2(LPDISPATCH pDisp3, VARIANT* URL)
 	} 
 
 
+
+}
+
+
+void CShellDlg::DocumentCompleteExplorer1(LPDISPATCH pDisp, VARIANT* URL)
+{
 
 }

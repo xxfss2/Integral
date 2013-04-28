@@ -12,18 +12,21 @@ public partial class Video_TodayVideo : UserBasePage
     {
         if (!IsPostBack)
         {
+            MovieAct movAct = new MovieAct();
+            rep1.DataSource = movAct.GetOldMovies().OrderByDescending(s => s.PlayDay);
+            rep1.DataBind();
             if (Request.QueryString["idd"] == null)
             {
-                MessageBox("请先登录后观看视频");
+                //MessageBox("请先登录后观看视频");
                 return;
             }
             User user = userAct.GetByid(Request.QueryString["idd"]);
             if (user == null || user.LoginPassWord != Request.QueryString["pw"])
             {
-                MessageBox("请先登录后观看视频");
+                //MessageBox("请先登录后观看视频");
                 return;
             }
-            MovieAct movAct = new MovieAct();
+          
             Movie todayMovie = movAct.GetTodayMovie();
             Movie nextMoive = movAct.GetNextdayMovie();
             if (nextMoive != null)
@@ -40,8 +43,7 @@ public partial class Video_TodayVideo : UserBasePage
             Literal1.Text = todayMovie.Name;
             Literal3.Text = todayMovie.Name;
 
-            rep1.DataSource = movAct.GetOldMovies().OrderByDescending(s => s.PlayDay);
-            rep1.DataBind();
+
 
             LimitAct limitAct = new LimitAct();
             Limit limit = limitAct.GetByid(user.Limit.ToString());

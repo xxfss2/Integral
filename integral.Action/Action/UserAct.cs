@@ -62,7 +62,7 @@ namespace integral.Action
 
         public void Edit(User user)
         {
-            string str = "update T_User set [Password]='" + user.LoginPassWord + "',[Jifen]=" + user.Jifen + ",[CanLogin]=" + user.CanLogin + ",[Shouyi]="+user.Shouyi+" where [QQ]='" + user.QQ + "'";
+            string str = "update T_User set [Password]='" + user.LoginPassWord + "',[Jifen]=" + user.Jifen + ",[CanLogin]=" + user.CanLogin + ",[Shouyi]=" + user.Shouyi + ",[Limit]="+user.Limit+" where [QQ]='" + user.QQ + "'";
 
             _DBbase.ExecuteCommand(str);
         }

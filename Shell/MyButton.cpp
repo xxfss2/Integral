@@ -148,14 +148,14 @@ void CMyButton::DrawButton(HDC hDestDC)
 	DeleteObject(hbr);
 
 	if(m_bDisable){
-		nAlpha=100;
+		nAlpha=0;//100
 	}else if(m_bDown){
-		nAlpha=180;
+		nAlpha=0;//180
 		nOffset=1;
 	}else if(m_bOver){
-		nAlpha=150;
+		nAlpha=0;//150
 	}else{
-		nAlpha=100;
+		nAlpha=0;//100
 	}
 	BLENDFUNCTION blend;
 	memset( &blend, 0, sizeof( blend) );

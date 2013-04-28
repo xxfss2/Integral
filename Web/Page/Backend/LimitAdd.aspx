@@ -47,7 +47,7 @@
                 <td class="UserTR1">
                     浏览的网址：</td>
                 <td class="UserTR2">
-                    <asp:TextBox ID="txtURL" runat="server" Width="657px"></asp:TextBox>
+                    <asp:TextBox ID="txtURL" runat="server" Width="150px"></asp:TextBox>
                     </td>
                 <td class="UserTR2">
                     &nbsp;</td>
