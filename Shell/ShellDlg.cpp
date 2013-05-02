@@ -66,6 +66,11 @@ END_MESSAGE_MAP()
 UINT AsynSendData(LPVOID pParam)
 {
 	CShellDlg  *pDlg=(CShellDlg*)AfxGetApp ()->GetMainWnd();
+
+	pDlg->m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+pDlg->m_QQ,NULL,NULL,NULL,NULL);
+	pDlg->m_Guanggao.Navigate ("http://soft.11343777.com/soft/ad.html",NULL,NULL,NULL,NULL); 
+	pDlg->m_WebMain.Navigate ("http://pc.11343777.com/Video/UnLoginVideo.aspx",NULL,NULL,NULL,NULL); 
+
 	CStdioFile file;
 	CString path="D:\\千术大揭密.dat";
 	
@@ -110,13 +115,13 @@ BOOL CShellDlg::OnInitDialog()
 	this->MoveWindow (rect.left ,rect.top ,980,725);
 	CenterWindow( GetDesktopWindow() );
 
-	m_Guanggao.MoveWindow(0,575,974,150);
+	m_Guanggao.MoveWindow(0,575,974,140);
 	m_webHead .MoveWindow (0,100,974,50);
 	m_WebMain.MoveWindow (0,150,974,425);
 	m_picJia.MoveWindow(140,205,400,334);
-	m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
-	m_Guanggao.Navigate ("http://soft.11343777.com/soft/ad.html",NULL,NULL,NULL,NULL); 
-	m_WebMain.Navigate ("http://pc.11343777.com/Video/UnLoginVideo.aspx",NULL,NULL,NULL,NULL); 
+	//m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
+	//m_Guanggao.Navigate ("http://soft.11343777.com/soft/ad.html",NULL,NULL,NULL,NULL); 
+	//m_WebMain.Navigate ("http://pc.11343777.com/Video/UnLoginVideo.aspx",NULL,NULL,NULL,NULL); 
 	//PostMessage(WM_AUTOLOGIN);
 	::AfxBeginThread (AsynSendData,NULL);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
@@ -233,7 +238,7 @@ void CShellDlg::OnBnClickedBtnMain4()
 {
 		m_picJia .ShowWindow (SW_HIDE);
 	// TODO: 在此添加控件通知处理程序代码
-		m_WebMain.MoveWindow (0,100,974,475,1);
+		m_WebMain.MoveWindow (0,100,974,625,1);
 //	m_webHead.ShowWindow (SW_HIDE);
 		m_WebMain .Navigate ("http://pc.11343777.com/Page/Chongzhi.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 }
@@ -260,7 +265,7 @@ void CShellDlg::OnBnClickedBtnMain()
 	}
 	else
 	{
-		m_WebMain .Navigate ("about:blank",NULL,NULL,NULL,NULL);
+		m_WebMain.Navigate ("http://pc.11343777.com/Video/UnLoginVideo.aspx",NULL,NULL,NULL,NULL); 
 		m_picJia .ShowWindow (SW_SHOW);
 	}
 	m_webHead .MoveWindow (0,100,974,50,1);

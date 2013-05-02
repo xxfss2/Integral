@@ -26,10 +26,9 @@
     <div style="margin :0 auto; width :600px;" >
     <table class="style1"  cellpadding ="0" cellspacing ="0" >
             <tr>
-                <td>
-                        购买的充值卡号：</td>
+                <td>&nbsp;购买的充值卡号：</td>
                 <td style ="padding-left :3px">
-                    <asp:TextBox ID="txtChongzhika" runat="server" Width="160px" MaxLength="11"></asp:TextBox>
+                    <asp:TextBox ID="txtChongzhika" runat="server" Width="160px" MaxLength="20"></asp:TextBox>
                 </td>
                 <td>
                     <asp:Button ID="BTsubmit" runat="server" Text="确认充值" Height="28px" Width="80px" 

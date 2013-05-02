@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
-                 html,body
+        html,body
         {
             background-color :#ECE9D8;
             font-size :14px;overflow:hidden;
@@ -15,7 +15,7 @@
         {
             width: 100%;
         }
-                        .style1 td
+        .style1 td
         {
             border :1px solid #000000;
         }
@@ -27,9 +27,9 @@
         <table class="style1"  cellpadding ="0" cellspacing ="0" >
             <tr>
                 <td>
-                        优惠充值卡号：</td>
+                        &nbsp;优惠充值卡号：</td>
                 <td style ="padding-left :3px">
-                    <asp:TextBox ID="txtChongzhika" runat="server" Width="160px" MaxLength="11"></asp:TextBox>
+                    <asp:TextBox ID="txtChongzhika" runat="server" Width="160px" MaxLength="20"></asp:TextBox>
                 </td>
                 <td>
                     <asp:Button ID="BTsubmit" runat="server" Text="确认充值" Height="28px" Width="80px" 
@@ -38,7 +38,7 @@
             </tr>
         </table>
    </div>
-   <iframe src ="http://soft.11343777.com/soft/youhui.html" width ="100%" height ="280px" ></iframe> 
+   <iframe src ="http://soft.11343777.com/soft/youhui.html" width ="100%" height ="430px" ></iframe> 
     </form>
 </body>
 </html>

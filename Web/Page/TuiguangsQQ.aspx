@@ -40,8 +40,7 @@
     <div style="margin :0 auto; width :600px; ">
        <table class="style1"  cellpadding ="0" cellspacing ="0" >
             <tr>
-                <td>
-                    添加新推广QQ：</td>
+                <td>&nbsp;添加新推广QQ：</td>
                 <td>
                     <asp:TextBox ID="TextBox1" runat="server" MaxLength="11"></asp:TextBox>
                 </td>
