@@ -77,8 +77,8 @@
         <li class="li1" >
         <table >
         <tr>
-<td><%# DataBinder.Eval(Container.DataItem,"QQ") %> </td>
-<td><%# DataBinder.Eval(Container.DataItem,"Name") %></td>
+<td  class="td1"><%# DataBinder.Eval(Container.DataItem,"QQ") %> </td>
+<td  class="td2" ><%# DataBinder.Eval(Container.DataItem,"Name") %></td>
 <td runat ="server"  id="shouyiTD"></td>
 </tr>
 </table>

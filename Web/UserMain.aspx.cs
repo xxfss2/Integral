@@ -27,7 +27,10 @@ public partial class UserMain : UserBasePage
 
             JifenChangeAct changeAct=new JifenChangeAct ();
 
-            int xiaofei = changeAct.Select(user.QQ).Where(s => s.Type == JifenChangeType.消费).Sum(s => s.Amount);
+            List<JifenChange > changs=changeAct.Select(user.QQ);
+            int xiaofei =0;
+            if(changs .Count >0 )
+                xiaofei = changs.Where(s => s.Type == JifenChangeType.消费).Sum(s => s.Amount);
             Literal5.Text = xiaofei.ToString ();
             Literal4.Text = next == null ? "0" : (next.Integral - (user.Jifen+xiaofei)).ToString();
             lJifenTotal.Text = (user.Jifen + xiaofei).ToString();

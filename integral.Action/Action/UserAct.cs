@@ -21,14 +21,14 @@ namespace integral.Action
             return true;
         }
 
-        public void Add(string qq, string password, string tuijianrenQQ,string mac)
+        public void Add(string qq, string password, string tuijianrenQQ,string mac,int limit)
         {
             int amount = MyCache .GetCommon .NewUserIntegral;
             if (tuijianrenQQ.Length > 0)
             {
                 amount += MyCache.GetCommon.BeiTuijianInteral ;
             }
-            string sql = "insert into T_User ([QQ],[Password],[TuijianrenQQ],[Jifen],[CreatedAt],[CanLogin],[Shouyi],[Mac]) values ('" + qq + "','" + password + "','" + tuijianrenQQ + "'," + amount + ",'" + DateTime.Now + "',true,0,'"+mac+"')";
+            string sql = "insert into T_User ([QQ],[Password],[TuijianrenQQ],[Jifen],[CreatedAt],[CanLogin],[Shouyi],[Mac],[Limit]) values ('" + qq + "','" + password + "','" + tuijianrenQQ + "'," + amount + ",'" + DateTime.Now + "',true,0,'" + mac + "',"+limit+")";
             _DBbase.ExecuteCommand(sql);
         }
 

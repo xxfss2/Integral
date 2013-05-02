@@ -18,17 +18,20 @@ public partial class TuiguangShouyi : UserBasePage
             User user = ac.GetByid(userQQ);
             if (user == null)
                 return;
-            System .Data .DataTable dt=ac.TuijianrenSelect(userQQ);
-           Ruserlist.DataSource = dt;
-           Ruserlist.DataBind();
+ 
 
-            lTuijian .Text =dt.Rows .Count.ToString ();
+
+
 
             JifenChangeAct changAct=new JifenChangeAct ();
             lLevel .Text =changAct .GetByQQ (userQQ).Where (s=>s.Type ==JifenChangeType .被推荐人升级奖励 ).Sum (s=>s.Amount ).ToString ();
             lJifen .Text =user .Shouyi.ToString () ;
 
             changes = changAct.GetByQQAndType(userQQ, JifenChangeType.被推荐人升级奖励);
+            System.Data.DataTable dt = ac.TuijianrenSelect(userQQ);
+            Ruserlist.DataSource = dt;
+            Ruserlist.DataBind();
+            lTuijian.Text = dt.Rows.Count.ToString();
         }
     }
     ICollection<JifenChange> changes;
@@ -36,9 +39,11 @@ public partial class TuiguangShouyi : UserBasePage
     {
         if (e.Item.DataItem == null)
             return;
-        DataRow dr = e.Item.DataItem as DataRow;
+        DataRowView dr = e.Item.DataItem as DataRowView;
         string qq = dr["QQ"].ToString();
         HtmlTableCell td = e.Item.FindControl("shouyiTD") as HtmlTableCell;
-        td.InnerText = changes.Where(s => s.FromQQ == qq).Sum(s => s.Amount).ToString();
+        ICollection<JifenChange> mychanges = changes.Where(s => s.FromQQ == qq).ToList ();
+        if(mychanges .Count >0)
+            td.InnerText = mychanges.Sum(s => s.Amount).ToString();
     }
 }

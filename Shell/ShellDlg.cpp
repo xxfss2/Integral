@@ -112,8 +112,7 @@ BOOL CShellDlg::OnInitDialog()
 
 	m_Guanggao.MoveWindow(0,575,974,150);
 	m_webHead .MoveWindow (0,100,974,50);
-	m_WebMain.MoveWindow (0,150,974,475);
-	m_WebMain.ShowScrollBar (SB_BOTH,FALSE);
+	m_WebMain.MoveWindow (0,150,974,425);
 	m_picJia.MoveWindow(140,205,400,334);
 	m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 	m_Guanggao.Navigate ("http://soft.11343777.com/soft/ad.html",NULL,NULL,NULL,NULL); 
@@ -253,7 +252,7 @@ void CShellDlg::OnBnClickedBtnMain()
 {
 	m_webHead.ShowWindow (SW_SHOW);
 	m_picJia .ShowWindow (SW_HIDE);
-	m_WebMain.MoveWindow (0,150,974,475,1);
+	m_WebMain.MoveWindow (0,150,974,425,1);
 
 	if(m_QQ .GetLength ()>0 && m_myPassword.GetLength ()>0)
 	{

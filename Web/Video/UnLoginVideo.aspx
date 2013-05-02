@@ -5,8 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>视频播放</title>
 <style type="text/css">
-<!--
-                 html,body
+
+    html,body
         {
             background-color :#ECE9D8;
             font-size :14px;overflow:hidden;
@@ -46,7 +46,6 @@ a:active {
     {
         width: 100%;
     }
--->
 </style></head>
 
 <body>
@@ -62,7 +61,7 @@ a:active {
         <p class="STYLE1" ><strong >明日预告：</strong><asp:Literal ID="Literal2" runat="server"></asp:Literal><span class="style2">（明天发布）</span></p>
         </td>
                   <td valign ="top">
-                  <div style ="height :450px; overflow-y:scroll;" >
+                  <div style ="height :425px; overflow-y:auto;" >
                       <table  style =" border :1px solid #000000;"  >
                           <tr>
                               <td>

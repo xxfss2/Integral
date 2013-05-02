@@ -74,7 +74,7 @@ public partial class Register : UserBasePage
         }
         try
         {
-            act.Add(qq, password, tuijianrenQQ,mac);
+            act.Add(qq, password, tuijianrenQQ,mac,1);
             if (!string.IsNullOrEmpty(tuijianrenQQ))
             {
                 JifenChangeAct changeAct = new JifenChangeAct();

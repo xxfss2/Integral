@@ -72,7 +72,7 @@ a:active {
         <p class="STYLE1" ><strong >明日预告：</strong><asp:Literal ID="Literal2" runat="server"></asp:Literal><span class="style2">（明天发布）</span></p>
         </td>
                   <td valign ="top">
-                  <div style ="height :450px; overflow-y:scroll;" >
+                  <div style ="height :425px; overflow-y:scroll;" >
                       <table  style =" border :1px solid #000000;"  >
                           <tr>
                               <td>
