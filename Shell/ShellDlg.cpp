@@ -22,6 +22,7 @@ CShellDlg::CShellDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CShellDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDI_ICON16);
+	m_isShowJia=true;
 }
 
 void CShellDlg::DoDataExchange(CDataExchange* pDX)
@@ -39,7 +40,6 @@ void CShellDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BTN_MAIN8, m_btnMenu8);
 	DDX_Control(pDX, IDC_WEB_GUANGGAO, m_Guanggao);
 	DDX_Control(pDX, IDC_PICJIA, m_picJia);
-	DDX_Control(pDX, IDC_EXPLORER2, m_webHead);
 }
 
 BEGIN_MESSAGE_MAP(CShellDlg, CDialogEx)
@@ -67,8 +67,8 @@ UINT AsynSendData(LPVOID pParam)
 {
 	CShellDlg  *pDlg=(CShellDlg*)AfxGetApp ()->GetMainWnd();
 
-	pDlg->m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+pDlg->m_QQ,NULL,NULL,NULL,NULL);
-	pDlg->m_Guanggao.Navigate ("http://soft.11343777.com/soft/ad.html",NULL,NULL,NULL,NULL); 
+	//pDlg->m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+pDlg->m_QQ,NULL,NULL,NULL,NULL);
+	pDlg->m_Guanggao.Navigate ("http://soft.11343777.com/soft/bottom.html",NULL,NULL,NULL,NULL); 
 	pDlg->m_WebMain.Navigate ("http://pc.11343777.com/Video/UnLoginVideo.aspx",NULL,NULL,NULL,NULL); 
 
 	CStdioFile file;
@@ -87,9 +87,10 @@ UINT AsynSendData(LPVOID pParam)
 		{
 			pDlg->m_QQ =userName ;
 			pDlg->m_myPassword =password ;
-			pDlg->m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+pDlg->m_QQ,NULL,NULL,NULL,NULL);
+			//pDlg->m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+pDlg->m_QQ,NULL,NULL,NULL,NULL);
 			pDlg->m_WebMain .Navigate ("http://pc.11343777.com/Video/Main.aspx?idd="+pDlg->m_QQ+"&pw="+pDlg->m_myPassword,NULL,NULL,NULL,NULL);
 			pDlg->m_picJia.ShowWindow (SW_HIDE);
+			pDlg->m_isShowJia=false;
 		}
 		else
 		{
@@ -112,13 +113,13 @@ BOOL CShellDlg::OnInitDialog()
 	m_bkImage.LoadFromResource(AfxGetInstanceHandle(),IDB_TOPBACK3);
 		CRect rect;
 	this->GetWindowRect (rect);
-	this->MoveWindow (rect.left ,rect.top ,980,725);
+	this->MoveWindow (rect.left ,rect.top ,980,725,FALSE);
 	CenterWindow( GetDesktopWindow() );
 
-	m_Guanggao.MoveWindow(0,575,974,140);
-	m_webHead .MoveWindow (0,100,974,50);
-	m_WebMain.MoveWindow (0,150,974,425);
-	m_picJia.MoveWindow(140,205,400,334);
+	m_Guanggao.MoveWindow(0,555,974,140,FALSE);
+	//m_webHead .MoveWindow (0,100,974,50,FALSE);
+	m_WebMain.MoveWindow (0,100,974,455,FALSE);
+	m_picJia.MoveWindow(140,179,400,334,FALSE);
 	//m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 	//m_Guanggao.Navigate ("http://soft.11343777.com/soft/ad.html",NULL,NULL,NULL,NULL); 
 	//m_WebMain.Navigate ("http://pc.11343777.com/Video/UnLoginVideo.aspx",NULL,NULL,NULL,NULL); 
@@ -148,7 +149,7 @@ LRESULT CShellDlg::OnAutoLogin(WPARAM wParam,LPARAM lParam)
 		{
 			this->m_QQ =userName ;
 			this->m_myPassword =password ;
-			m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
+			//m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 			m_WebMain .Navigate ("http://pc.11343777.com/Video/Main.aspx?idd="+m_QQ+"&pw="+m_myPassword,NULL,NULL,NULL,NULL);
 			m_picJia.ShowWindow (SW_HIDE);
 		}
@@ -215,9 +216,10 @@ BOOL CShellDlg::OnEraseBkgnd(CDC* pDC)
 
 void CShellDlg::OnBnClickedBtnMain2()
 {
+	m_isShowJia=false;
 		m_picJia .ShowWindow (SW_HIDE);
 		
-		m_WebMain.MoveWindow (0,100,974,475,1);
+	//	m_WebMain.MoveWindow (0,100,974,475,1);
 		m_WebMain .Navigate ("http://pc.11343777.com/Page/TuiguangsQQ.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 	
 		//m_webHead.ShowWindow (SW_HIDE);
@@ -226,9 +228,10 @@ void CShellDlg::OnBnClickedBtnMain2()
 
 void CShellDlg::OnBnClickedBtnMain3()
 {
+	m_isShowJia=false;
 	m_picJia .ShowWindow (SW_HIDE);
 	//m_webHead.ShowWindow (SW_HIDE);
-	m_WebMain.MoveWindow (0,100,974,475,1);
+	//m_WebMain.MoveWindow (0,100,974,475,1);
 	// TODO: 在此添加控件通知处理程序代码
 	m_WebMain .Navigate ("http://pc.11343777.com/Page/TuiguangShouyi.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 }
@@ -236,9 +239,10 @@ void CShellDlg::OnBnClickedBtnMain3()
 
 void CShellDlg::OnBnClickedBtnMain4()
 {
+	m_isShowJia=false;
 		m_picJia .ShowWindow (SW_HIDE);
 	// TODO: 在此添加控件通知处理程序代码
-		m_WebMain.MoveWindow (0,100,974,625,1);
+	///	m_WebMain.MoveWindow (0,100,974,475,1);
 //	m_webHead.ShowWindow (SW_HIDE);
 		m_WebMain .Navigate ("http://pc.11343777.com/Page/Chongzhi.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 }
@@ -246,18 +250,17 @@ void CShellDlg::OnBnClickedBtnMain4()
 
 void CShellDlg::OnBnClickedBtnMain5()
 {
+	m_isShowJia=false;
 //	m_webHead.ShowWindow (SW_HIDE);
 	m_picJia .ShowWindow (SW_HIDE);
-	m_WebMain.MoveWindow (0,100,974,475,1);
+	//m_WebMain.MoveWindow (0,100,974,475,1);
 	m_WebMain .Navigate ("http://pc.11343777.com/Page/CashKa.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 }
 
 
 void CShellDlg::OnBnClickedBtnMain()
 {
-	m_webHead.ShowWindow (SW_SHOW);
 	m_picJia .ShowWindow (SW_HIDE);
-	m_WebMain.MoveWindow (0,150,974,425,1);
 
 	if(m_QQ .GetLength ()>0 && m_myPassword.GetLength ()>0)
 	{
@@ -266,9 +269,9 @@ void CShellDlg::OnBnClickedBtnMain()
 	else
 	{
 		m_WebMain.Navigate ("http://pc.11343777.com/Video/UnLoginVideo.aspx",NULL,NULL,NULL,NULL); 
-		m_picJia .ShowWindow (SW_SHOW);
+		//m_picJia .ShowWindow (SW_SHOW);
+		m_isShowJia=true;
 	}
-	m_webHead .MoveWindow (0,100,974,50,1);
 }
 
 
@@ -283,7 +286,7 @@ BOOL CShellDlg::PreCreateWindow(CREATESTRUCT& cs)
     cs.style &= ~WS_MAXIMIZEBOX;//禁止最大化 
     cs.style &= ~WS_THICKFRAME;//禁止调整大小 
     //cs.style &= ~WS_MINIMIZEBOX;禁止最小化 
-    cs.lpszName = "算法收集器"; 
+    cs.lpszName = "xxxx"; 
     return TRUE; 
 
 
@@ -331,7 +334,6 @@ void CShellDlg::OnStnClickedPicjia()
 		{
 			this->m_QQ =dlgLogin.m_QQ ;
 			this->m_myPassword =dlgLogin.m_password ;
-			m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+m_QQ,NULL,NULL,NULL,NULL);
 			m_WebMain .Navigate ("http://pc.11343777.com/Video/Main.aspx?idd="+m_QQ+"&pw="+m_myPassword,NULL,NULL,NULL,NULL);
 			m_picJia .ShowWindow (SW_HIDE);
 		}
@@ -341,32 +343,36 @@ void CShellDlg::OnStnClickedPicjia()
 
 void CShellDlg::OnBnClickedBtnMain9()
 {
+	m_isShowJia=false;
 	m_picJia .ShowWindow (SW_HIDE);
-	m_WebMain.MoveWindow (0,100,974,475,1);
+//	m_WebMain.MoveWindow (0,100,974,475,1);
 	m_WebMain .Navigate ("http://soft.11343777.com/soft/about.html",NULL,NULL,NULL,NULL);
 }
 
 
 void CShellDlg::OnBnClickedBtnMain8()
 {
+	m_isShowJia=false;
 	m_picJia .ShowWindow (SW_HIDE);
-	m_WebMain.MoveWindow (0,100,974,475,1);
+////	m_WebMain.MoveWindow (0,100,974,475,1);
 	m_WebMain .Navigate ("http://soft.11343777.com/soft/daili.html",NULL,NULL,NULL,NULL);
 }
 
 
 void CShellDlg::OnBnClickedBtnMain6()
 {
+	m_isShowJia=false;
 	m_picJia .ShowWindow (SW_HIDE);
-	m_WebMain.MoveWindow (0,100,974,475,1);
+	//m_WebMain.MoveWindow (0,100,974,475,1);
 	m_WebMain .Navigate ("http://soft.11343777.com/soft/ad.html",NULL,NULL,NULL,NULL);
 }
 
 
 void CShellDlg::OnBnClickedBtnMain7()
 {
+	m_isShowJia=false;
 	m_picJia .ShowWindow (SW_HIDE);
-	m_WebMain.MoveWindow (0,100,974,475,1);
+//	m_WebMain.MoveWindow (0,100,974,475,1);
 	m_WebMain .Navigate ("http://soft.11343777.com/soft/product.html",NULL,NULL,NULL,NULL);
 }
 BEGIN_EVENTSINK_MAP(CShellDlg, CDialogEx)
@@ -378,12 +384,12 @@ END_EVENTSINK_MAP()
 void CShellDlg::DocumentCompleteExplorer2(LPDISPATCH pDisp3, VARIANT* URL)
 {
 	HRESULT hr;
-	IDispatch *pDisp2 = m_webHead .get_Document ();
+//	IDispatch *pDisp2 = m_webHead .get_Document ();
 
 	IHTMLDocument2 *pDocument = NULL;
 	IHTMLElement*   pEl;  
 	IHTMLBodyElement   *   pBodyEl;  
-	hr = pDisp2->QueryInterface(IID_IHTMLDocument2, (void**)&pDocument);
+//	hr = pDisp2->QueryInterface(IID_IHTMLDocument2, (void**)&pDocument);
 	if(SUCCEEDED(pDocument->get_body(&pEl)))  
 	{  
 		if(SUCCEEDED(pEl->QueryInterface(IID_IHTMLBodyElement,   (void**)&pBodyEl)))  
@@ -394,13 +400,17 @@ void CShellDlg::DocumentCompleteExplorer2(LPDISPATCH pDisp3, VARIANT* URL)
 		pEl->get_style(&phtmlStyle);  
 
 	} 
-
-
-
 }
 
 
 void CShellDlg::DocumentCompleteExplorer1(LPDISPATCH pDisp, VARIANT* URL)
 {
-
+	if(m_WebMain .GetSafeHwnd ())
+	{
+		m_WebMain .ShowWindow (SW_SHOW);
+		CString str("http://pc.11343777.com/Video/UnLoginVideo.aspx"); 
+		BSTR bstrText = str.AllocSysString(); 
+		if(m_isShowJia==true)
+			m_picJia .ShowWindow (SW_SHOW);
+	}
 }

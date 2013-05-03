@@ -41,6 +41,7 @@ protected:
 	//bool m_isMainFrom;
 
 
+
 public:
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	CMyButton m_btnMain;
@@ -50,7 +51,7 @@ public:
 	CMyButton m_btnMenu5;
 	CExplorer1 m_WebMain;
 	CMyButton m_btnMenu6;
-
+		bool m_isShowJia;
 	CString m_QQ;
 	CString m_myPassword;
 	CMyButton m_btnMenu7;
@@ -71,7 +72,7 @@ protected:
 public:
 		CStatic m_picJia;
 	afx_msg void OnStnClickedPicjia();
-	CExplorer1 m_webHead;
+	//CExplorer1 m_webHead;
 	afx_msg void OnBnClickedBtnMain9();
 	afx_msg void OnBnClickedBtnMain8();
 	afx_msg void OnBnClickedBtnMain6();

@@ -1,5 +1,6 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="UnLoginVideo.aspx.cs" Inherits="Video_UnLoginVideo" %>
 <%@ Import Namespace ="integral.Action" %>
+<%@ Register src="UserInfo.ascx" tagname="UserInfo" tagprefix="uc1" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
@@ -10,10 +11,6 @@
         {
             background-color :#ECE9D8;
             font-size :14px;overflow:hidden;
-           margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
         }
 body,td,th {
 	font-size: 13px;
@@ -46,22 +43,31 @@ a:active {
     {
         width: 100%;
     }
+                .head
+        {
+            width: 100%;
+        }
+        
+        .head td
+        {
+            border :1px solid #000000;
+        }
 </style></head>
 
 <body>
 <form id ="form1" runat="server"  >
+<uc1:UserInfo ID="UserInfo1" runat="server" />
 <div >
           <table class="style3">
               <tr>
                   <td style =" width:70%" align="center" >
-               <strong >今日看点：</strong><asp:Literal ID="Literal1" runat="server"></asp:Literal>
-          <span class="style2">（正在播放）</span>
-    <p style =" height :334px" >
-        &nbsp;</p>
-        <p class="STYLE1" ><strong >明日预告：</strong><asp:Literal ID="Literal2" runat="server"></asp:Literal><span class="style2">（明天发布）</span></p>
+               <strong >今日看点：</strong><asp:Literal ID="Literal1" runat="server"></asp:Literal> <span class="style2">（正在播放）</span>
+    <div style =" height :334px" >
+        &nbsp;</div>
+        <div class="STYLE1" ><strong >明日预告：</strong><asp:Literal ID="Literal2" runat="server"></asp:Literal><span class="style2">（明天发布）</span></div>
         </td>
                   <td valign ="top">
-                  <div style ="height :425px; overflow-y:auto;" >
+                  <div style ="height :405px; overflow-y:auto;" >
                       <table  style =" border :1px solid #000000;"  >
                           <tr>
                               <td>
