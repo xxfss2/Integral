@@ -21,6 +21,7 @@
 CShellDlg::CShellDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CShellDlg::IDD, pParent)
 {
+	CoInitialize(NULL);
 	m_hIcon = AfxGetApp()->LoadIcon(IDI_ICON16);
 	m_isShowJia=true;
 }
@@ -63,8 +64,10 @@ END_MESSAGE_MAP()
 
 
 // CShellDlg 消息处理程序
+bool webEnd=true;
 UINT AsynSendData(LPVOID pParam)
 {
+	webEnd=false;
 	CShellDlg  *pDlg=(CShellDlg*)AfxGetApp ()->GetMainWnd();
 
 	//pDlg->m_webHead .Navigate ("http://pc.11343777.com/UserMain.aspx?idd="+pDlg->m_QQ,NULL,NULL,NULL,NULL);
@@ -99,6 +102,8 @@ UINT AsynSendData(LPVOID pParam)
 		}
 
 	}
+	//CoUninitialize();
+	webEnd=true;
 	return 1;
 }
 BOOL CShellDlg::OnInitDialog()
@@ -124,7 +129,7 @@ BOOL CShellDlg::OnInitDialog()
 	//m_Guanggao.Navigate ("http://soft.11343777.com/soft/ad.html",NULL,NULL,NULL,NULL); 
 	//m_WebMain.Navigate ("http://pc.11343777.com/Video/UnLoginVideo.aspx",NULL,NULL,NULL,NULL); 
 	//PostMessage(WM_AUTOLOGIN);
-	::AfxBeginThread (AsynSendData,NULL);
+	 pThread= ::AfxBeginThread (AsynSendData,NULL);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -216,6 +221,8 @@ BOOL CShellDlg::OnEraseBkgnd(CDC* pDC)
 
 void CShellDlg::OnBnClickedBtnMain2()
 {
+	if(webEnd==false)
+		return;
 	m_isShowJia=false;
 		m_picJia .ShowWindow (SW_HIDE);
 		
@@ -228,6 +235,8 @@ void CShellDlg::OnBnClickedBtnMain2()
 
 void CShellDlg::OnBnClickedBtnMain3()
 {
+	if(webEnd==false)
+		return;
 	m_isShowJia=false;
 	m_picJia .ShowWindow (SW_HIDE);
 	//m_webHead.ShowWindow (SW_HIDE);
@@ -239,6 +248,8 @@ void CShellDlg::OnBnClickedBtnMain3()
 
 void CShellDlg::OnBnClickedBtnMain4()
 {
+	if(webEnd==false)
+		return;
 	m_isShowJia=false;
 		m_picJia .ShowWindow (SW_HIDE);
 	// TODO: 在此添加控件通知处理程序代码
@@ -250,6 +261,8 @@ void CShellDlg::OnBnClickedBtnMain4()
 
 void CShellDlg::OnBnClickedBtnMain5()
 {
+	if(webEnd==false)
+		return;
 	m_isShowJia=false;
 //	m_webHead.ShowWindow (SW_HIDE);
 	m_picJia .ShowWindow (SW_HIDE);
@@ -260,6 +273,8 @@ void CShellDlg::OnBnClickedBtnMain5()
 
 void CShellDlg::OnBnClickedBtnMain()
 {
+	if(webEnd==false)
+		return;
 	m_picJia .ShowWindow (SW_HIDE);
 
 	if(m_QQ .GetLength ()>0 && m_myPassword.GetLength ()>0)
@@ -336,6 +351,7 @@ void CShellDlg::OnStnClickedPicjia()
 			this->m_myPassword =dlgLogin.m_password ;
 			m_WebMain .Navigate ("http://pc.11343777.com/Video/Main.aspx?idd="+m_QQ+"&pw="+m_myPassword,NULL,NULL,NULL,NULL);
 			m_picJia .ShowWindow (SW_HIDE);
+			m_isShowJia=false;
 		}
 	}
 }
@@ -343,6 +359,8 @@ void CShellDlg::OnStnClickedPicjia()
 
 void CShellDlg::OnBnClickedBtnMain9()
 {
+		if(webEnd==false)
+		return;
 	m_isShowJia=false;
 	m_picJia .ShowWindow (SW_HIDE);
 //	m_WebMain.MoveWindow (0,100,974,475,1);
@@ -352,6 +370,8 @@ void CShellDlg::OnBnClickedBtnMain9()
 
 void CShellDlg::OnBnClickedBtnMain8()
 {
+		if(webEnd==false)
+		return;
 	m_isShowJia=false;
 	m_picJia .ShowWindow (SW_HIDE);
 ////	m_WebMain.MoveWindow (0,100,974,475,1);
@@ -361,6 +381,8 @@ void CShellDlg::OnBnClickedBtnMain8()
 
 void CShellDlg::OnBnClickedBtnMain6()
 {
+		if(webEnd==false)
+		return;
 	m_isShowJia=false;
 	m_picJia .ShowWindow (SW_HIDE);
 	//m_WebMain.MoveWindow (0,100,974,475,1);
@@ -370,6 +392,8 @@ void CShellDlg::OnBnClickedBtnMain6()
 
 void CShellDlg::OnBnClickedBtnMain7()
 {
+		if(webEnd==false)
+		return;
 	m_isShowJia=false;
 	m_picJia .ShowWindow (SW_HIDE);
 //	m_WebMain.MoveWindow (0,100,974,475,1);

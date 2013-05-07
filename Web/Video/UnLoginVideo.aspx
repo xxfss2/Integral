@@ -75,11 +75,11 @@ a:active {
                           </tr>
                           <tr>
                               <td>
-                                  明日预告：<asp:Literal ID="Literal3" runat="server"></asp:Literal><span class="style2">（正在播放）</span></td>
+                                  今日看点：<asp:Literal ID="Literal3" runat="server"></asp:Literal><span class="style2">（正在播放）</span></td>
                           </tr>
                           <tr>
                               <td>
-                                  今日看点：<asp:Literal ID="Literal4" runat="server"></asp:Literal><span class="style2">（明天发布）</span></td>
+                                 明日预告： <asp:Literal ID="Literal4" runat="server"></asp:Literal><span class="style2">（明天发布）</span></td>
                           </tr>
                           <asp:Repeater runat ="server" ID ="rep1" >
                           <ItemTemplate >

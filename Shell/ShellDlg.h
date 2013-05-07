@@ -40,7 +40,7 @@ protected:
 	//是否在主界面
 	//bool m_isMainFrom;
 
-
+	CWinThread* pThread;
 
 public:
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
